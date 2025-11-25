@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daftar Supplier Biji Kopi</title>
+</head>
+<body>
+    <h1>Daftar Supplier Biji Kopi</h1>
+
+    <ul>       
+        {% for supplier in object_list %}
+            <li> {{ supplier.nama_perusahaan }} - Penanggung Jawab: {{ supplier.nama_penanggung_jawab }} </li>
+        {% empty %}               
+            <li>Belum ada data supplier yang terdaftar.</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

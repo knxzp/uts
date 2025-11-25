@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detail Customer</title>
+</head>
+<body>
+
+    <h1>Detail Customer</h1>
+
+    <!-- Detail informasi customer -->
+    <p><strong>Nama Lengkap:</strong> {{ object.nama_lengkap }}</p>
+    <p><strong>Kontak:</strong> {{ object.kontak }}</p>
+    <p><strong>Alamat:</strong> {{ object.alamat }}</p>
+
+    <hr>
+
+    <h2>Daftar Pesanan oleh {{ object.nama_lengkap }}</h2>
+
+    <ul>
+        {% for pesanan in object.orders.all %}
+            <li>
+                <strong>{{ pesanan.nama_menu }}</strong>
+                (Jumlah: {{ pesanan.jumlah }})
+                <p>Tanggal Pesan: {{ pesanan.tanggal_pesan }}</p>
+            </li>
+        {% empty %}
+            <li>Customer ini belum pernah membuat pesanan.</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
