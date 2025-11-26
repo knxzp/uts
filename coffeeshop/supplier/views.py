@@ -3,9 +3,9 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .forms import SupplierForm
 from rest_framework.generics import ListAPIView
-from .serializers import SupplierSerializer 
+from .serializers import SupplierSerializer, CustomerSerializer, BaristaSerializer
 from rest_framework import viewsets
-from .models import Supplier
+from .models import Supplier, Customer, Barista
 
 class SupplierListView(ListView):
     model = Supplier
@@ -37,3 +37,11 @@ class SupplierDeleteView(DeleteView):
 class SupplierViewSet(viewsets.ModelViewSet):
     queryset = Supplier.objects.all().order_by('-tanggal_registrasi')
     serializer_class = SupplierSerializer
+
+class CustomerViewSet(viewsets.ModelViewSet):
+    queryset = Customer.objects.all()
+    serializer_class = CustomerSerializer
+
+class BaristaViewSet(viewsets.ModelViewSet):
+    queryset = Barista.objects.all()
+    serializer_class = BaristaSerializer

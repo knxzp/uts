@@ -4,6 +4,8 @@ from .views import SupplierViewSet
 
 router = DefaultRouter()
 router.register(r'supplier', SupplierViewSet, basename='supplier')
+router.register(r'customer', CustomerViewSet)
+router.register(r'barista', BaristaViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
