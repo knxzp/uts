@@ -5,7 +5,8 @@
 </head>
 <body>
     <h1>Daftar Supplier Biji Kopi</h1>
-
+    <a href="{% url 'supplier-tambah' %}">Tambah Supplier Baru</a>
+    <hr>
     <ul>       
         {% for supplier in object_list %}
             <li> {{ supplier.nama_perusahaan }} - Penanggung Jawab: {{ supplier.nama_penanggung_jawab }} </li>
