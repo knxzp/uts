@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Detail Customer</title>
+    <title>Detail Supplier</title>
 </head>
 <body>
 
-    <h1>Detail Customer</h1>
+<h1>Detail Supplier</h1>
 
-    <!-- Detail informasi customer -->
-    <p><strong>Nama Lengkap:</strong> {{ object.nama_lengkap }}</p>
-    <p><strong>Kontak:</strong> {{ object.kontak }}</p>
-    <p><strong>Alamat:</strong> {{ object.alamat }}</p>
+<p><strong>Nama Perusahaan:</strong> {{ object.nama_perusahaan }}</p>
+<p><strong>Nama Penanggung Jawab:</strong> {{ object.nama_penanggung_jawab }}</p>
+<p><strong>Kontak:</strong> {{ object.kontak }}</p>
+<p><strong>Alamat:</strong> {{ object.alamat }}</p>
+<p><strong>Jenis Biji:</strong> {{ object.jenis_biji }}</p>
+<p><strong>Asal Biji:</strong> {{ object.asal_biji }}</p>
+<p><strong>Tanggal Kerja Sama:</strong> {{ object.tanggal_kerjasama }}</p>
 
-    <hr>
+<hr>
 
-    <h2>Daftar Pesanan oleh {{ object.nama_lengkap }}</h2>
+<h2>Daftar Pesanan ke {{ object.nama_perusahaan }}</h2>
 
-    <a href="{% url 'supplier-edit' object.pk %}">Edit Data</a> | 
-    <a href="{% url 'supplier-hapus' object.pk %}">Hapus Data</a>
-    <hr>
+<a href="{% url 'supplier-edit' object.pk %}">Edit Data</a> | 
+<a href="{% url 'supplier-hapus' object.pk %}">Hapus Data</a>
 
-    <ul>
-        {% for pesanan in object.orders.all %}
-            <li>
-                <strong>{{ pesanan.nama_menu }}</strong>
-                (Jumlah: {{ pesanan.jumlah }})
-                <p>Tanggal Pesan: {{ pesanan.tanggal_pesan }}</p>
-            </li>
-        {% empty %}
-            <li>Customer ini belum pernah membuat pesanan.</li>
-        {% endfor %}
-    </ul>
+<hr>
+
+<ul>
+    {% for pesanan in object.orders.all %}
+        <li>
+            <strong>{{ pesanan.nama_menu }}</strong>
+            (Jumlah: {{ pesanan.jumlah }})
+            <p>Tanggal Pesan: {{ pesanan.tanggal_pesan }}</p>
+        </li>
+    {% empty %}
+        <li>Supplier ini belum pernah menerima pesanan.</li>
+    {% endfor %}
+</ul>
 
 </body>
 </html>

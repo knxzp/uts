@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daftar Customer</title>
+</head>
+<body>
+    <h1>Daftar Customer</h1>
+    <a href="{% url 'customer-tambah' %}">Tambah Customer Baru</a>
+    <hr>
+    <ul>       
+        {% for customer in object_list %}
+            <li> {{ customer.nama_lengkap }} - Kontak: {{ customer.kontak }} </li>
+        {% empty %}               
+            <li>Belum ada data customer yang terdaftar.</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
