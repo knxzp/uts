@@ -16,6 +16,10 @@
 
     <h2>Daftar Pesanan oleh {{ object.nama_lengkap }}</h2>
 
+    <a href="{% url 'supplier-edit' object.pk %}">Edit Data</a> | 
+    <a href="{% url 'supplier-hapus' object.pk %}">Hapus Data</a>
+    <hr>
+
     <ul>
         {% for pesanan in object.orders.all %}
             <li>

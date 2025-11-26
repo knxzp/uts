@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konfirmasi Hapus Supplier</title>
+</head>
+<body>
+    <h1>Hapus Supplier</h1>
+    <p>Apakah Anda yakin ingin menghapus data supplier: <strong>{{ object.nama_perusahaan }}</strong>?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Ya, Hapus</button>
+        <a href="{% url 'supplier-detail' object.pk %}">Batal</a>
+    </form>
+</body>
+</html>
