@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Supplier, Customer, Barista, Order
 from .forms import SupplierForm
 from rest_framework.generics import ListAPIView
 from .serializers import SupplierSerializer 
 from rest_framework import viewsets
+from .models import Supplier
 
 class SupplierListView(ListView):
     model = Supplier
@@ -30,6 +30,10 @@ class SupplierDeleteView(DeleteView):
     template_name = 'supplier/supplier_confirm_delete.html'
     success_url = reverse_lazy('supplier-list')
 
-class SupplierListAPIView(ListAPIView):
-    queryset = Supplier.objects.all()
+# class SupplierListAPIView(ListAPIView):
+#     queryset = Supplier.objects.all()
+#     serializer_class = SupplierSerializer
+
+class SupplierViewSet(viewsets.ModelViewSet):
+    queryset = Supplier.objects.all().order_by('-tanggal_registrasi')
     serializer_class = SupplierSerializer

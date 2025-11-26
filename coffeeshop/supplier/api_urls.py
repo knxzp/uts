@@ -1,6 +1,10 @@
-from django.urls import path
-from .views import SupplierListAPIView
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import SupplierViewSet
+
+router = DefaultRouter()
+router.register(r'supplier', SupplierViewSet, basename='supplier')
 
 urlpatterns = [
-    path('supplier/', SupplierListAPIView.as_view(), name='api-supplier-list'),
+    path('', include(router.urls)),
 ]

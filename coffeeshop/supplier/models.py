@@ -7,7 +7,7 @@ class Supplier(models.Model):
     asal_biji = models.CharField(max_length=100, verbose_name="Asal Biji Kopi")   # Gayo, Toraja, Bali Kintamani
     alamat = models.TextField(verbose_name="Alamat Supplier")
     kontak = models.CharField(max_length=20, verbose_name="Nomor Kontak")
-    tanggal_kerjasama = models.DateField(auto_now_add=True, verbose_name="Tanggal Mulai Kerjasama")
+    tanggal_registrasi = models.DateField(auto_now_add=True, verbose_name="Tanggal Mulai Kerjasama")
 
     def __str__(self):
         return self.nama_perusahaan
